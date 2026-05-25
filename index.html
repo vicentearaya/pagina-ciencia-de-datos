@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Evalúa tu relación con los videojuegos. Proyecto de ciencia de datos sobre adicción al gaming y salud mental."
+    />
+    <title>Gaming & Salud Mental</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <main class="film" id="film">
+      <section class="scene scene-wallpaper active" id="wallpaperScene">
+        <div class="wallpaper"></div>
+
+        <div class="title-block">
+          <p class="eyebrow">ciencia de datos / salud digital</p>
+          <h1>
+            <span class="title-top">GAMING</span>
+            <span class="title-bottom">Y SALUD MENTAL</span>
+          </h1>
+        </div>
+
+        <button class="start-btn" id="startBtn" type="button">
+          Determina tu nivel de adicción
+        </button>
+      </section>
+
+      <section class="scene scene-black" id="captionScene">
+        <p class="caption-text">
+          jugar no siempre es escapar.<br />
+          a veces es la señal.
+        </p>
+      </section>
+
+      <section class="scene scene-video" id="infoScene">
+        <div class="info-frame">
+          <p class="info-label">modelo predictivo</p>
+          <p class="info-text">
+            Con tus hábitos de juego estimamos el nivel de adicción a los
+            videojuegos, apoyado en datos y un modelo ya entrenado.
+          </p>
+          <p class="info-hint">El formulario de evaluación llegará pronto.</p>
+        </div>
+      </section>
+
+      <div class="fade-layer" id="fadeLayer"></div>
+
+      <section class="scene scene-black final" id="finalScene">
+        <p class="final-text">
+          conoce tu patrón.<br />
+          cuida tu equilibrio.
+        </p>
+
+        <button class="replay-btn" id="replayBtn" type="button">
+          Volver al inicio
+        </button>
+      </section>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
