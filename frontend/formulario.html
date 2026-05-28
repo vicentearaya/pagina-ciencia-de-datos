@@ -22,112 +22,342 @@
         <p class="eyebrow">evaluacion / gaming</p>
         <h1>Determina tu nivel de adiccion</h1>
         <p class="intro">
-          Responde con honestidad. Este cuestionario sirve como entrada para un
-          modelo que clasificara tu perfil de riesgo en tres niveles. Marca
-          <strong>Si</strong> cuando el enunciado ocurre en tu caso.
+          Responde con honestidad. Las 18 preguntas (Bloque 1 y Bloque 2) se
+          envian al modelo para estimar tu nivel de riesgo.
         </p>
       </section>
 
       <section class="form-card">
         <form id="assessmentForm">
-          <ol class="questions-list">
-            <li>
-              <p>Piensa constantemente en cuando podra volver a jugar en internet.</p>
-              <div class="options-row">
-                <label><input type="radio" name="igd1" value="1" required /> Si</label>
-                <label><input type="radio" name="igd1" value="0" /> No</label>
-              </div>
-            </li>
-            <li>
-              <p>Siente que jugar mas tiempo le dejaria mas satisfecho.</p>
-              <div class="options-row">
-                <label><input type="radio" name="igd2" value="1" required /> Si</label>
-                <label><input type="radio" name="igd2" value="0" /> No</label>
-              </div>
-            </li>
-            <li>
-              <p>Se siente mal cuando no puede jugar en internet.</p>
-              <div class="options-row">
-                <label><input type="radio" name="igd3" value="1" required /> Si</label>
-                <label><input type="radio" name="igd3" value="0" /> No</label>
-              </div>
-            </li>
-            <li>
-              <p>
-                No logra reducir el tiempo de juego aunque otras personas se lo
-                pidan.
-              </p>
-              <div class="options-row">
-                <label><input type="radio" name="igd4" value="1" required /> Si</label>
-                <label><input type="radio" name="igd4" value="0" /> No</label>
-              </div>
-            </li>
-            <li>
-              <p>
-                Usa los juegos en internet para evitar pensar en problemas o
-                molestias.
-              </p>
-              <div class="options-row">
-                <label><input type="radio" name="igd5" value="1" required /> Si</label>
-                <label><input type="radio" name="igd5" value="0" /> No</label>
-              </div>
-            </li>
-            <li>
-              <p>
-                Ha tenido conflictos con otras personas por las consecuencias de
-                su forma de jugar.
-              </p>
-              <div class="options-row">
-                <label><input type="radio" name="igd6" value="1" required /> Si</label>
-                <label><input type="radio" name="igd6" value="0" /> No</label>
-              </div>
-            </li>
-            <li>
-              <p>Oculta a otras personas cuanto tiempo pasa jugando.</p>
-              <div class="options-row">
-                <label><input type="radio" name="igd7" value="1" required /> Si</label>
-                <label><input type="radio" name="igd7" value="0" /> No</label>
-              </div>
-            </li>
-            <li>
-              <p>
-                Ha perdido interes en otras actividades porque jugar es lo unico
-                que quiere hacer.
-              </p>
-              <div class="options-row">
-                <label><input type="radio" name="igd8" value="1" required /> Si</label>
-                <label><input type="radio" name="igd8" value="0" /> No</label>
-              </div>
-            </li>
-            <li>
-              <p>
-                Ha tenido conflictos con familia, amistades o pareja por causa
-                de los juegos.
-              </p>
-              <div class="options-row">
-                <label><input type="radio" name="igd9" value="1" required /> Si</label>
-                <label><input type="radio" name="igd9" value="0" /> No</label>
-              </div>
-            </li>
-          </ol>
+          <div class="form-block">
+            <h2 class="block-title">Bloque 1</h2>
+            <p class="block-hint">Respuesta: Si / No</p>
+            <ol class="questions-list">
+              <li>
+                <p>Pienso constantemente en cuando podre volver a jugar.</p>
+                <div class="options-row options-row--binary">
+                  <label><input type="radio" name="igd1" value="1" required /> Si</label>
+                  <label><input type="radio" name="igd1" value="0" /> No</label>
+                </div>
+              </li>
+              <li>
+                <p>Siento que jugar mas tiempo me dejaria mas satisfecho.</p>
+                <div class="options-row options-row--binary">
+                  <label><input type="radio" name="igd2" value="1" required /> Si</label>
+                  <label><input type="radio" name="igd2" value="0" /> No</label>
+                </div>
+              </li>
+              <li>
+                <p>Me siento mal cuando no puedo jugar.</p>
+                <div class="options-row options-row--binary">
+                  <label><input type="radio" name="igd3" value="1" required /> Si</label>
+                  <label><input type="radio" name="igd3" value="0" /> No</label>
+                </div>
+              </li>
+              <li>
+                <p>Me cuesta reducir el tiempo que paso jugando.</p>
+                <div class="options-row options-row--binary">
+                  <label><input type="radio" name="igd4" value="1" required /> Si</label>
+                  <label><input type="radio" name="igd4" value="0" /> No</label>
+                </div>
+              </li>
+              <li>
+                <p>
+                  Uso los videojuegos para evitar pensar en problemas o emociones
+                  desagradables.
+                </p>
+                <div class="options-row options-row--binary">
+                  <label><input type="radio" name="igd5" value="1" required /> Si</label>
+                  <label><input type="radio" name="igd5" value="0" /> No</label>
+                </div>
+              </li>
+              <li>
+                <p>He tenido conflictos con otras personas por mi forma de jugar.</p>
+                <div class="options-row options-row--binary">
+                  <label><input type="radio" name="igd6" value="1" required /> Si</label>
+                  <label><input type="radio" name="igd6" value="0" /> No</label>
+                </div>
+              </li>
+              <li>
+                <p>Oculto cuanto tiempo paso jugando.</p>
+                <div class="options-row options-row--binary">
+                  <label><input type="radio" name="igd7" value="1" required /> Si</label>
+                  <label><input type="radio" name="igd7" value="0" /> No</label>
+                </div>
+              </li>
+              <li>
+                <p>He perdido interes en otras actividades por jugar.</p>
+                <div class="options-row options-row--binary">
+                  <label><input type="radio" name="igd8" value="1" required /> Si</label>
+                  <label><input type="radio" name="igd8" value="0" /> No</label>
+                </div>
+              </li>
+              <li>
+                <p>
+                  He tenido problemas con familia, amistades o pareja por los
+                  videojuegos.
+                </p>
+                <div class="options-row options-row--binary">
+                  <label><input type="radio" name="igd9" value="1" required /> Si</label>
+                  <label><input type="radio" name="igd9" value="0" /> No</label>
+                </div>
+              </li>
+            </ol>
+          </div>
+
+          <div class="form-block">
+            <h2 class="block-title">Bloque 2</h2>
+            <p class="block-hint">Respuesta cerrada</p>
+            <ol class="questions-list" start="10">
+              <li>
+                <p>Cuantas horas juegas en una semana tipica?</p>
+                <div class="options-row options-row--stack">
+                  <label
+                    ><input
+                      type="radio"
+                      name="gaming_hours_daily"
+                      value="menos_1h"
+                      required
+                    />
+                    Menos de 1 hora por dia</label
+                  >
+                  <label
+                    ><input type="radio" name="gaming_hours_daily" value="entre_1_3h" />
+                    Entre 1 y 3 horas por dia</label
+                  >
+                  <label
+                    ><input type="radio" name="gaming_hours_daily" value="mas_3h" /> Mas de
+                    3 horas por dia</label
+                  >
+                </div>
+              </li>
+              <li>
+                <p>Cuantas horas al dia usas redes sociales?</p>
+                <div class="options-row options-row--stack">
+                  <label
+                    ><input type="radio" name="social_media_hours" value="0_2h" required />
+                    Entre 0 y 2 horas</label
+                  >
+                  <label
+                    ><input type="radio" name="social_media_hours" value="3_4h" /> Entre 3 y
+                    4 horas</label
+                  >
+                  <label
+                    ><input type="radio" name="social_media_hours" value="mas_4h" /> Mas de 4
+                    horas</label
+                  >
+                </div>
+              </li>
+              <li>
+                <p>Cual es tu principal motivo para usar internet?</p>
+                <div class="options-row options-row--stack">
+                  <label
+                    ><input
+                      type="radio"
+                      name="internet_main_reason"
+                      value="videojuegos"
+                      required
+                    />
+                    Videojuegos</label
+                  >
+                  <label
+                    ><input type="radio" name="internet_main_reason" value="estudiar" />
+                    Estudiar</label
+                  >
+                  <label
+                    ><input type="radio" name="internet_main_reason" value="trabajo" />
+                    Trabajo</label
+                  >
+                  <label
+                    ><input
+                      type="radio"
+                      name="internet_main_reason"
+                      value="redes_sociales"
+                    />
+                    Redes sociales</label
+                  >
+                  <label
+                    ><input type="radio" name="internet_main_reason" value="mas_de_uno" />
+                    Mas de un motivo</label
+                  >
+                  <label
+                    ><input type="radio" name="internet_main_reason" value="otro" /> Otro</label
+                  >
+                </div>
+              </li>
+              <li>
+                <p>Cuanto tardas normalmente en quedarte dormido?</p>
+                <div class="options-row options-row--stack">
+                  <label
+                    ><input type="radio" name="sleep_latency" value="menos_15" required />
+                    Menos de 15 minutos</label
+                  >
+                  <label
+                    ><input type="radio" name="sleep_latency" value="15_30" /> Entre 15 y 30
+                    minutos</label
+                  >
+                  <label
+                    ><input type="radio" name="sleep_latency" value="31_60" /> Entre 31 y 60
+                    minutos</label
+                  >
+                  <label
+                    ><input type="radio" name="sleep_latency" value="mas_60" /> Mas de 60
+                    minutos</label
+                  >
+                </div>
+              </li>
+              <li>
+                <p>Cuantas horas duermes normalmente por noche?</p>
+                <div class="options-row options-row--stack">
+                  <label
+                    ><input type="radio" name="sleep_duration" value="menos_5" required />
+                    Menos de 5 horas</label
+                  >
+                  <label
+                    ><input type="radio" name="sleep_duration" value="5_6" /> Entre 5 y 6
+                    horas</label
+                  >
+                  <label
+                    ><input type="radio" name="sleep_duration" value="6_7" /> Entre 6 y 7
+                    horas</label
+                  >
+                  <label
+                    ><input type="radio" name="sleep_duration" value="7_8" /> Entre 7 y 8
+                    horas</label
+                  >
+                  <label
+                    ><input type="radio" name="sleep_duration" value="mas_8" /> Mas de 8
+                    horas</label
+                  >
+                </div>
+              </li>
+              <li>
+                <p>Como evaluarias tu calidad general de sueno?</p>
+                <div class="options-row options-row--stack">
+                  <label
+                    ><input type="radio" name="sleep_quality" value="muy_buena" required />
+                    Muy buena</label
+                  >
+                  <label
+                    ><input type="radio" name="sleep_quality" value="bastante_buena" />
+                    Bastante buena</label
+                  >
+                  <label
+                    ><input type="radio" name="sleep_quality" value="bastante_mala" />
+                    Bastante mala</label
+                  >
+                  <label
+                    ><input type="radio" name="sleep_quality" value="muy_mala" /> Muy mala</label
+                  >
+                </div>
+              </li>
+              <li>
+                <p>
+                  Con que frecuencia has necesitado ayuda o medicacion para dormir durante el
+                  ultimo mes?
+                </p>
+                <div class="options-row options-row--stack">
+                  <label
+                    ><input
+                      type="radio"
+                      name="sleep_medication_freq"
+                      value="nunca"
+                      required
+                    />
+                    Nunca</label
+                  >
+                  <label
+                    ><input
+                      type="radio"
+                      name="sleep_medication_freq"
+                      value="menos_1_semana"
+                    />
+                    Menos de una vez por semana</label
+                  >
+                  <label
+                    ><input type="radio" name="sleep_medication_freq" value="1_2_semana" /> Una
+                    o dos veces por semana</label
+                  >
+                  <label
+                    ><input type="radio" name="sleep_medication_freq" value="3_mas_semana" />
+                    Tres o mas veces por semana</label
+                  >
+                </div>
+              </li>
+              <li>
+                <p>
+                  Con que frecuencia te cuesta mantenerte despierto durante el dia?
+                </p>
+                <div class="options-row options-row--stack">
+                  <label
+                    ><input
+                      type="radio"
+                      name="daytime_sleepiness_freq"
+                      value="nunca"
+                      required
+                    />
+                    Nunca</label
+                  >
+                  <label
+                    ><input
+                      type="radio"
+                      name="daytime_sleepiness_freq"
+                      value="menos_1_semana"
+                    />
+                    Menos de una vez por semana</label
+                  >
+                  <label
+                    ><input type="radio" name="daytime_sleepiness_freq" value="1_2_semana" />
+                    Una o dos veces por semana</label
+                  >
+                  <label
+                    ><input type="radio" name="daytime_sleepiness_freq" value="3_mas_semana" />
+                    Tres o mas veces por semana</label
+                  >
+                </div>
+              </li>
+              <li>
+                <p>
+                  Con que frecuencia te cuesta mantener el entusiasmo para hacer tus
+                  actividades?
+                </p>
+                <div class="options-row options-row--stack">
+                  <label
+                    ><input type="radio" name="enthusiasm_freq" value="nunca" required />
+                    Nunca</label
+                  >
+                  <label
+                    ><input type="radio" name="enthusiasm_freq" value="menos_1_semana" />
+                    Menos de una vez por semana</label
+                  >
+                  <label
+                    ><input type="radio" name="enthusiasm_freq" value="1_2_semana" /> Una o dos
+                    veces por semana</label
+                  >
+                  <label
+                    ><input type="radio" name="enthusiasm_freq" value="3_mas_semana" /> Tres o
+                    mas veces por semana</label
+                  >
+                </div>
+              </li>
+            </ol>
+          </div>
 
           <div class="actions">
-            <button type="submit" class="submit-btn">Enviar respuestas</button>
+            <button type="submit" class="submit-btn">Obtener clasificacion</button>
             <a class="back-link" href="/">Volver a inicio</a>
           </div>
         </form>
       </section>
 
       <section class="classification-card">
-        <h2>Clasificaciones previstas</h2>
+        <h2>Clasificaciones</h2>
         <ul>
           <li>Clasificacion 1: "Jugador sin indicadores relevantes de trastorno"</li>
           <li>Clasificacion 2: "Jugador en riesgo de desarrollar problemas por gaming"</li>
           <li>Clasificacion 3: "Jugador con alta probabilidad de trastorno por gaming"</li>
         </ul>
-        <p id="statusMessage">
-          Completa las 9 preguntas para obtener tu clasificacion.
-        </p>
+        <p id="statusMessage">Completa todas las preguntas para obtener tu clasificacion.</p>
       </section>
     </main>
 

@@ -1,4 +1,5 @@
 from pathlib import Path
+from typing import Literal
 
 import joblib
 import pandas as pd
@@ -6,10 +7,12 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
+from features import build_model_row
+
 app = FastAPI(
     title="Gaming Classification API",
     description="API para clasificar riesgo de trastorno por gaming.",
-    version="0.1.0",
+    version="0.2.0",
 )
 
 app.add_middleware(
@@ -20,8 +23,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-MODEL_PATH = Path(__file__).resolve().parent / "random_forest_jordan_multiclass.pkl"
-FEATURE_ORDER = [f"igd{i}" for i in range(1, 10)]
+MODEL_PATH = (
+    Path(__file__).resolve().parent
+    / "gradient_boosting_jordan_generic_hybrid_multiclass.pkl"
+)
 CLASS_LABELS = {
     0: "Jugador sin indicadores relevantes de trastorno",
     1: "Jugador en riesgo de desarrollar problemas por gaming",
@@ -56,25 +61,58 @@ class AssessmentPayload(BaseModel):
     igd8: int = Field(ge=0, le=1)
     igd9: int = Field(ge=0, le=1)
 
+    gaming_hours_daily: Literal["menos_1h", "entre_1_3h", "mas_3h"]
+    social_media_hours: Literal["0_2h", "3_4h", "mas_4h"]
+    internet_main_reason: Literal[
+        "videojuegos",
+        "estudiar",
+        "trabajo",
+        "redes_sociales",
+        "mas_de_uno",
+        "otro",
+    ]
+    sleep_latency: Literal["menos_15", "15_30", "31_60", "mas_60"]
+    sleep_duration: Literal["menos_5", "5_6", "6_7", "7_8", "mas_8"]
+    sleep_quality: Literal["muy_buena", "bastante_buena", "bastante_mala", "muy_mala"]
+    sleep_medication_freq: Literal[
+        "nunca", "menos_1_semana", "1_2_semana", "3_mas_semana"
+    ]
+    daytime_sleepiness_freq: Literal[
+        "nunca", "menos_1_semana", "1_2_semana", "3_mas_semana"
+    ]
+    enthusiasm_freq: Literal[
+        "nunca", "menos_1_semana", "1_2_semana", "3_mas_semana"
+    ]
+
 
 @app.get("/health")
 async def health_check():
     model_loaded = MODEL_PATH.exists()
-    return {"status": "ok", "model_found": model_loaded}
+    return {
+        "status": "ok",
+        "model_found": model_loaded,
+        "model_file": MODEL_PATH.name,
+    }
 
 
 @app.post("/predict")
 async def predict(payload: AssessmentPayload):
     answers = payload.model_dump()
-    ordered_answers = {feature: answers[feature] for feature in FEATURE_ORDER}
-    input_df = pd.DataFrame([ordered_answers], columns=FEATURE_ORDER)
-    positive_answers = int(sum(ordered_answers.values()))
+    positive_answers = sum(answers[f"igd{i}"] for i in range(1, 10))
 
     try:
         model = get_model()
+        feature_row = build_model_row(answers)
+        columns = list(model.feature_names_in_)
+        input_df = pd.DataFrame([feature_row], columns=columns)
         prediction = int(model.predict(input_df)[0])
     except FileNotFoundError as exc:
         raise HTTPException(status_code=500, detail=str(exc)) from exc
+    except KeyError as exc:
+        raise HTTPException(
+            status_code=422,
+            detail=f"Valor de formulario no reconocido: {exc}",
+        ) from exc
     except Exception as exc:
         raise HTTPException(
             status_code=500,
