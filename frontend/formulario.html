@@ -344,20 +344,40 @@
           </div>
 
           <div class="actions">
-            <button type="submit" class="submit-btn">Obtener clasificacion</button>
+            <button type="submit" class="submit-btn">Ver mi resultado</button>
             <a class="back-link" href="/">Volver a inicio</a>
           </div>
         </form>
       </section>
 
-      <section class="classification-card">
-        <h2>Clasificaciones</h2>
-        <ul>
-          <li>Clasificacion 1: "Jugador sin indicadores relevantes de trastorno"</li>
-          <li>Clasificacion 2: "Jugador en riesgo de desarrollar problemas por gaming"</li>
-          <li>Clasificacion 3: "Jugador con alta probabilidad de trastorno por gaming"</li>
-        </ul>
-        <p id="statusMessage">Completa todas las preguntas para obtener tu clasificacion.</p>
+      <section class="result-card" id="resultCard" aria-live="polite">
+        <p class="result-eyebrow">Tu perfil</p>
+
+        <div class="result-state result-state--idle" id="resultIdle">
+          <div class="result-icon result-icon--idle" aria-hidden="true">◎</div>
+          <p class="result-idle-text">
+            Cuando termines el cuestionario, aquí verás una lectura sencilla de tu
+            relación con el gaming y el descanso.
+          </p>
+        </div>
+
+        <div class="result-state result-state--loading is-hidden" id="resultLoading">
+          <div class="result-spinner" aria-hidden="true"></div>
+          <p class="result-loading-text">Estamos analizando tus respuestas…</p>
+        </div>
+
+        <div class="result-state result-state--success is-hidden" id="resultSuccess">
+          <div class="result-badge" id="resultBadge"></div>
+          <h2 class="result-title" id="resultTitle"></h2>
+          <p class="result-description" id="resultDescription"></p>
+          <p class="result-tip" id="resultTip"></p>
+        </div>
+
+        <div class="result-state result-state--error is-hidden" id="resultError">
+          <div class="result-icon result-icon--error" aria-hidden="true">!</div>
+          <h2 class="result-title result-title--error">No pudimos mostrar tu resultado</h2>
+          <p class="result-description" id="resultErrorMessage"></p>
+        </div>
       </section>
     </main>
 

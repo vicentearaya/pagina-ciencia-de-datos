@@ -22,7 +22,7 @@ body {
 
 .hero-card,
 .form-card,
-.classification-card {
+.result-card {
   background: rgba(9, 12, 25, 0.78);
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 18px;
@@ -158,16 +158,141 @@ h2 {
   margin-bottom: 0.8rem;
 }
 
-.classification-card ul {
-  list-style: none;
-  display: grid;
-  gap: 0.6rem;
-  margin-bottom: 0.9rem;
+.result-card {
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
 }
 
-#statusMessage {
-  color: rgba(207, 213, 255, 0.9);
-  line-height: 1.5;
+.result-eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.28rem;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 1.25rem;
+}
+
+.result-state {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 0.85rem;
+}
+
+.result-state.is-hidden {
+  display: none;
+}
+
+.result-idle-text,
+.result-loading-text,
+.result-description,
+.result-tip {
+  max-width: 36rem;
+  line-height: 1.6;
+  color: rgba(235, 238, 255, 0.9);
+}
+
+.result-idle-text {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.95rem;
+}
+
+.result-icon {
+  width: 3rem;
+  height: 3rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-size: 1.35rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.result-icon--error {
+  border-color: rgba(255, 120, 120, 0.45);
+  color: #ffb4b4;
+  background: rgba(255, 80, 80, 0.12);
+}
+
+.result-spinner {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-top-color: rgba(120, 180, 255, 0.95);
+  animation: spin 0.85s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.result-badge {
+  display: inline-block;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+}
+
+.result-badge--level-0 {
+  color: #b8f5d4;
+  background: rgba(56, 180, 120, 0.18);
+  border-color: rgba(120, 220, 170, 0.35);
+}
+
+.result-badge--level-1 {
+  color: #ffe8b8;
+  background: rgba(220, 160, 60, 0.2);
+  border-color: rgba(255, 200, 100, 0.35);
+}
+
+.result-badge--level-2 {
+  color: #ffc8c8;
+  background: rgba(220, 80, 80, 0.2);
+  border-color: rgba(255, 130, 130, 0.4);
+}
+
+.result-title {
+  font-family: "Anton", sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2.1rem);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.result-title--error {
+  font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+}
+
+.result-tip {
+  margin-top: 0.25rem;
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(220, 225, 255, 0.88);
+}
+
+.result-card--low {
+  border-color: rgba(120, 220, 170, 0.35);
+  box-shadow: 0 18px 40px rgba(56, 180, 120, 0.12);
+}
+
+.result-card--mid {
+  border-color: rgba(255, 200, 100, 0.35);
+  box-shadow: 0 18px 40px rgba(220, 160, 60, 0.12);
+}
+
+.result-card--high {
+  border-color: rgba(255, 130, 130, 0.4);
+  box-shadow: 0 18px 40px rgba(220, 80, 80, 0.14);
 }
 
 @media (max-width: 768px) {
@@ -178,7 +303,7 @@ h2 {
 
   .hero-card,
   .form-card,
-  .classification-card {
+  .result-card {
     padding: 1rem;
   }
 
