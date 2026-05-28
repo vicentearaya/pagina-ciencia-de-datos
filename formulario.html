@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Formulario para estimar indicadores de trastorno por gaming."
+    />
+    <title>Formulario | Gaming y Salud Mental</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/formulario.css" />
+  </head>
+  <body>
+    <main class="assessment-page">
+      <section class="hero-card">
+        <p class="eyebrow">evaluacion / gaming</p>
+        <h1>Determina tu nivel de adiccion</h1>
+        <p class="intro">
+          Responde con honestidad. Este cuestionario sirve como entrada para un
+          modelo que clasificara tu perfil de riesgo en tres niveles. Marca
+          <strong>Si</strong> cuando el enunciado ocurre en tu caso.
+        </p>
+      </section>
+
+      <section class="form-card">
+        <form id="assessmentForm">
+          <ol class="questions-list">
+            <li>
+              <p>Piensa constantemente en cuando podra volver a jugar en internet.</p>
+              <div class="options-row">
+                <label><input type="radio" name="igd1" value="1" required /> Si</label>
+                <label><input type="radio" name="igd1" value="0" /> No</label>
+              </div>
+            </li>
+            <li>
+              <p>Siente que jugar mas tiempo le dejaria mas satisfecho.</p>
+              <div class="options-row">
+                <label><input type="radio" name="igd2" value="1" required /> Si</label>
+                <label><input type="radio" name="igd2" value="0" /> No</label>
+              </div>
+            </li>
+            <li>
+              <p>Se siente mal cuando no puede jugar en internet.</p>
+              <div class="options-row">
+                <label><input type="radio" name="igd3" value="1" required /> Si</label>
+                <label><input type="radio" name="igd3" value="0" /> No</label>
+              </div>
+            </li>
+            <li>
+              <p>
+                No logra reducir el tiempo de juego aunque otras personas se lo
+                pidan.
+              </p>
+              <div class="options-row">
+                <label><input type="radio" name="igd4" value="1" required /> Si</label>
+                <label><input type="radio" name="igd4" value="0" /> No</label>
+              </div>
+            </li>
+            <li>
+              <p>
+                Usa los juegos en internet para evitar pensar en problemas o
+                molestias.
+              </p>
+              <div class="options-row">
+                <label><input type="radio" name="igd5" value="1" required /> Si</label>
+                <label><input type="radio" name="igd5" value="0" /> No</label>
+              </div>
+            </li>
+            <li>
+              <p>
+                Ha tenido conflictos con otras personas por las consecuencias de
+                su forma de jugar.
+              </p>
+              <div class="options-row">
+                <label><input type="radio" name="igd6" value="1" required /> Si</label>
+                <label><input type="radio" name="igd6" value="0" /> No</label>
+              </div>
+            </li>
+            <li>
+              <p>Oculta a otras personas cuanto tiempo pasa jugando.</p>
+              <div class="options-row">
+                <label><input type="radio" name="igd7" value="1" required /> Si</label>
+                <label><input type="radio" name="igd7" value="0" /> No</label>
+              </div>
+            </li>
+            <li>
+              <p>
+                Ha perdido interes en otras actividades porque jugar es lo unico
+                que quiere hacer.
+              </p>
+              <div class="options-row">
+                <label><input type="radio" name="igd8" value="1" required /> Si</label>
+                <label><input type="radio" name="igd8" value="0" /> No</label>
+              </div>
+            </li>
+            <li>
+              <p>
+                Ha tenido conflictos con familia, amistades o pareja por causa
+                de los juegos.
+              </p>
+              <div class="options-row">
+                <label><input type="radio" name="igd9" value="1" required /> Si</label>
+                <label><input type="radio" name="igd9" value="0" /> No</label>
+              </div>
+            </li>
+          </ol>
+
+          <div class="actions">
+            <button type="submit" class="submit-btn">Enviar respuestas</button>
+            <a class="back-link" href="/">Volver a inicio</a>
+          </div>
+        </form>
+      </section>
+
+      <section class="classification-card">
+        <h2>Clasificaciones previstas</h2>
+        <ul>
+          <li>Clasificacion 1: "Jugador sin indicadores relevantes de trastorno"</li>
+          <li>Clasificacion 2: "Jugador en riesgo de desarrollar problemas por gaming"</li>
+          <li>Clasificacion 3: "Jugador con alta probabilidad de trastorno por gaming"</li>
+        </ul>
+        <p id="statusMessage">
+          Completa las 9 preguntas para obtener tu clasificacion.
+        </p>
+      </section>
+    </main>
+
+    <script type="module" src="/src/formulario.js"></script>
+  </body>
+</html>
